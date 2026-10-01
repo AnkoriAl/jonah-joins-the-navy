@@ -16,8 +16,8 @@ gsap.registerPlugin(ScrollTrigger);
 const chapters = [enlist, storm, transfer, england, machine, periscope, lab];
 const starts = [0,15,35,55,80,125,150];
 const duration = 180;
-// Chapter links land after the .8-second dissolve, when the incoming art is visible.
-function chapterTime(index:number) { return starts[index]+(index>0?1:0); }
+// Paused chapter links land after both the artwork dissolve and the opening lyric fade.
+function chapterTime(index:number) { return starts[index]+(index>0?2:0); }
 function route() {
   const hash=decodeURIComponent(location.hash.slice(1));
   if(hash==='listen'||hash==='references') return {footer:true,time:0};
