@@ -39,10 +39,11 @@ export const machine: ChapterDefinition = {
   Component: Machine,
   animate(root, tl) {
     const q = (selector: string) => root.querySelectorAll(selector);
-    const portrait = window.matchMedia('(max-width: 767px)').matches;
     const plane = root.querySelector<HTMLElement>('.machine-plane');
     const planeWidth = plane?.clientWidth || root.clientWidth;
-    const cameraX = (focus: number) => portrait ? (.5 - focus) * planeWidth : 0;
+    const maxPan = Math.max(0, (planeWidth - root.clientWidth) / 2);
+    // Follow the action whenever the room is wider than the viewport, without exposing an edge.
+    const cameraX = (focus: number) => Math.max(-maxPan, Math.min(maxPan, (.5 - focus) * planeWidth));
     let preceding: Plate = 'room';
     const showPlate = (name: Plate, at: number, focus = .5) => {
       // Opaque editorial cuts prevent two bodies or unattached arms appearing together.
@@ -101,7 +102,7 @@ export const machine: ChapterDefinition = {
     tl.to(q('.machine-torpedo'), { xPercent: -470, duration: 3.1, ease: 'power1.in' }, 36.2);
     tl.set(q('.machine-bubbles'), { opacity: .65 }, 36.6);
     tl.to(q('.machine-bubbles'), { xPercent: -260, opacity: 0, duration: 3.1, ease: 'sine.out' }, 36.6);
-    if (portrait) tl.to(q('.machine-plane'), { x: cameraX(.42), duration: 3.1, ease: 'sine.inOut' }, 36.5);
+    if (maxPan > 0) tl.to(q('.machine-plane'), { x: cameraX(.42), duration: 3.1, ease: 'sine.inOut' }, 36.5);
     tl.set(q('.machine-exterior-effects'), { opacity: 0 }, 40);
     tl.set(q('.machine-camera, .machine-portrait-frame'), { scale: 1 }, 40);
     tl.to(q('.machine-travel-light'), { opacity: .25, duration: 2.2, ease: 'none' }, 40);
