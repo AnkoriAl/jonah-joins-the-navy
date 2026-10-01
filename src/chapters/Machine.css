@@ -1,0 +1,25 @@
+.machine-world { background: #061522; isolation: isolate; }
+.machine-plane { position: absolute; left: 50%; top: 50%; width: max(100%, 177.778svh); height: max(100%, 56.25vw); transform: translate(-50%, -50%); }
+.machine-camera { position: absolute; inset: 0; }
+.machine-portrait-frame { display: none; position: absolute; inset: 0; z-index: 1; }
+.machine-world .machine-plate { inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; visibility: hidden; }
+.machine-world .machine-plate-room { opacity: 1; visibility: visible; }
+.machine-oil-drop { position: absolute; left: 69.6%; top: 38.1%; width: .12%; height: .4%; border-radius: 60% 60% 70% 70%; background: #b58a38; box-shadow: 0 1px 2px #0005; }
+.machine-surface-light { position: absolute; left: 71%; top: 54%; width: 7%; height: 6%; border-radius: 50%; background: radial-gradient(ellipse at 45% 40%, #fff6d8, transparent 68%); mix-blend-mode: soft-light; pointer-events: none; }
+.machine-exterior-effects { position: absolute; inset: 0; clip-path: inset(0 29.6% 0 0); pointer-events: none; }
+.machine-torpedo { position: absolute; left: 70%; top: 52.2%; width: 12%; aspect-ratio: 545 / 176; overflow: hidden; transform-origin: 50% 50%; filter: brightness(.72) drop-shadow(0 .3rem .3rem #03152266); }
+.machine-torpedo > .art { width: 281.834%; height: auto; max-width: none; left: -.734%; top: -361.932%; }
+.machine-bubbles { position: absolute; left: 69%; top: 55.5%; width: 16%; height: 4%; }
+.machine-bubbles i { position: absolute; left: var(--bubble-x); top: var(--bubble-y); width: var(--bubble-size); height: var(--bubble-size); border: 1px solid #b3d6db99; border-radius: 50%; background: #b3d6db10; }
+.machine-travel-light { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 49% 36%, #8ab5c24a, transparent 38%); mix-blend-mode: screen; }
+.machine-caption-shade { position: absolute; z-index: 2; inset: 60% 0 0; background: linear-gradient(0deg, #061522e8, #0615224a 58%, transparent); pointer-events: none; }
+.machine-world .machine-caption { left: 7%; top: auto; bottom: 9%; width: 47%; max-width: 47%; opacity: 0; z-index: 5; text-wrap: balance; }
+@media (max-width: 767px) {
+  .machine-plane .machine-plate-hammock { display: none; }
+  .machine-portrait-frame { display: block; }
+  .machine-world .machine-caption { left: 7%; bottom: 11%; width: 86%; max-width: 86%; font-size: clamp(36px, 8.8vw, 50px); }
+  .machine-caption-shade { inset: 66% 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .machine-oil-drop, .machine-surface-light, .machine-exterior-effects, .machine-travel-light { display: none; }
+}

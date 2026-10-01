@@ -1,0 +1,223 @@
+.enlist-world {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  background: #082033;
+}
+
+.enlist-world .enlist-composition {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.enlist-world .enlist-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 65% 50%;
+}
+
+.enlist-world .enlist-atmosphere {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #061e3e9c 0%, #061e3e22 45%, transparent 70%),
+    linear-gradient(0deg, #071d3499, transparent 37%, #102c4420);
+  pointer-events: none;
+}
+
+.enlist-world .enlist-jonah {
+  position: absolute;
+  height: min(82vh, 920px);
+  height: min(82svh, 920px);
+  aspect-ratio: 3 / 4;
+  left: 64%;
+  bottom: 4.5%;
+  margin-left: calc(min(82svh, 920px) * -.375);
+  filter: drop-shadow(8px 12px 10px #04111a55);
+}
+
+.enlist-world .enlist-pose {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.enlist-world .enlist-board {
+  position: absolute;
+  top: 0;
+  width: 200%;
+  height: 100%;
+  max-width: none;
+  object-fit: fill;
+}
+
+.enlist-world .enlist-half {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.enlist-world .enlist-half-robe {
+  transform: translateX(-16.4%);
+}
+
+.enlist-world .enlist-half-navy {
+  transform: translateX(12%);
+}
+
+.enlist-world .enlist-board-robe {
+  left: 0;
+}
+
+.enlist-world .enlist-board-navy {
+  left: -100%;
+}
+
+.enlist-world .enlist-ground-shadow {
+  position: absolute;
+  width: 54%;
+  height: 2.7%;
+  left: 25%;
+  bottom: -.4%;
+  background: #051a25aa;
+  border-radius: 50%;
+  filter: blur(7px);
+  z-index: -1;
+}
+
+.enlist-world .enlist-title,
+.enlist-world .enlist-turn {
+  opacity: 0;
+  left: 8.5%;
+  top: 33%;
+  width: 43%;
+  max-width: 650px;
+}
+
+.enlist-world .enlist-title h1 {
+  margin: 0;
+  max-width: 10ch;
+}
+
+.enlist-world .enlist-title p[lang='he'] {
+  margin: 1.2em 0 0;
+  width: max-content;
+  max-width: 100%;
+  font-size: clamp(22px, 2.2vw, 34px);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.enlist-world .enlist-turn p {
+  margin: 0;
+  max-width: 11ch;
+}
+
+.enlist-world .enlist-hull-label {
+  position: absolute;
+  opacity: 0;
+  right: 8%;
+  top: 30%;
+  color: #efe8d2;
+  font-family: var(--sans, JonahSans, sans-serif);
+  font-size: clamp(13px, 1.2vw, 19px);
+  letter-spacing: .15em;
+  line-height: 1.7;
+  text-shadow: 0 1px 8px #03111d;
+}
+
+.enlist-world .enlist-fiction {
+  display: block;
+  font-size: .68em;
+  letter-spacing: .045em;
+  opacity: .82;
+}
+
+.enlist-world .enlist-optical {
+  position: absolute;
+  left: calc(75% - 14vmin);
+  top: calc(50% - 14vmin);
+  width: 28vmin;
+  height: 28vmin;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.enlist-world .enlist-optical-sea {
+  position: absolute;
+  inset: 19%;
+  border-radius: 50%;
+  background: #082033;
+  box-shadow: inset 0 0 25px #020d18;
+}
+
+.enlist-world .enlist-optical-rim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 767px) {
+  .enlist-world .enlist-background {
+    object-position: 55% 50%;
+  }
+
+  .enlist-world .enlist-atmosphere {
+    background: linear-gradient(180deg, #061e3ea3, #061e3e33 46%, #071d3466);
+  }
+
+  .enlist-world .enlist-jonah {
+    height: 62svh;
+    left: 63%;
+    bottom: 5%;
+    margin-left: calc(62svh * -.375);
+  }
+
+  .enlist-world .enlist-title,
+  .enlist-world .enlist-turn {
+    top: 16%;
+    left: 8%;
+    width: 84%;
+    max-width: none;
+  }
+
+  .enlist-world .enlist-title h1 {
+    max-width: 11ch;
+  }
+
+  .enlist-world .enlist-title p[lang='he'] {
+    margin-top: .75em;
+    font-size: clamp(20px, 5.2vw, 30px);
+  }
+
+  .enlist-world .enlist-turn p {
+    max-width: 14ch;
+  }
+
+  .enlist-world .enlist-hull-label {
+    top: 49%;
+    right: 7%;
+    font-size: 12px;
+  }
+
+  .enlist-world .enlist-optical {
+    left: calc(72% - 16vmin);
+    top: calc(59% - 16vmin);
+    width: 32vmin;
+    height: 32vmin;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enlist-world .enlist-optical {
+    display: none;
+  }
+}

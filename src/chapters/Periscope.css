@@ -1,0 +1,42 @@
+.periscope-world { background: #071b30; isolation: isolate; }
+.periscope-machine, .periscope-reveal { position: absolute; inset: 0; overflow: hidden; }
+.periscope-interior, .periscope-harbor, .periscope-lab-paper { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.periscope-interior { object-position: 53% 50%; }
+.periscope-interior-shade { position: absolute; inset: 0; background: linear-gradient(115deg, #031426cd, #06172470 42%, #071b3015 76%); }
+.periscope-reveal { opacity: 0; }
+.periscope-harbor { object-position: 63% 52%; }
+.periscope-harbor-shade { position: absolute; inset: 0; background: linear-gradient(110deg, #031426bb 0%, #03142640 35%, transparent 68%), linear-gradient(0deg, #04132260, transparent 46%); pointer-events: none; }
+.periscope-lab-paper { opacity: 0; }
+.periscope-ring { position: absolute; z-index: 5; opacity: 0; pointer-events: none; }
+.periscope-ring > .art { inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.periscope-botanical { position: absolute; z-index: 4; opacity: 0; }
+.periscope-botanical-glass { position: absolute; inset: 16.8%; border-radius: 50%; overflow: hidden; background: #122721; }
+.periscope-botanical-glass > .art { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+.periscope-world .periscope-caption { top: 12%; left: 8%; width: 41%; max-width: 680px; opacity: 0; }
+.periscope-world .periscope-caption-throat { max-width: 12ch; }
+.periscope-world .periscope-caption-harbor { max-width: 13ch; }
+.periscope-world .periscope-caption-service { width: 46%; max-width: 15ch; }
+.periscope-service { position: absolute; left: 62%; top: 43%; width: min(33vw, 500px); height: min(49vh, 490px); z-index: 6; opacity: 0; pointer-events: none; }
+.periscope-service-paper { position: absolute; inset: 0; overflow: hidden; color: #102e3e; box-shadow: 0 1.4rem 2rem #03132160; }
+.periscope-service-paper > .art { inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.periscope-service-number { position: absolute; inset: -9% 0 0; display: grid; place-items: center; font-family: Instrument, Georgia, serif; font-size: clamp(220px, 29vw, 530px); font-weight: 400; line-height: .8; letter-spacing: -.09em; padding-right: .09em; }
+.periscope-service-label { position: absolute; bottom: 9%; left: 0; width: 100%; text-align: center; font-family: Noto, sans-serif; font-size: clamp(10px, .8vw, 14px); letter-spacing: .24em; }
+.periscope-page { position: absolute; inset: -3% -4% 2%; box-shadow: 0 .6rem 1.4rem #071b3036; opacity: 0; overflow: hidden; }
+.periscope-page > .art { inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+@media (max-width: 767px) {
+  .periscope-world .periscope-caption { top: 11%; left: 7%; width: 86%; max-width: 16ch; }
+  .periscope-world .periscope-caption-service { max-width: 16ch; }
+  .periscope-harbor { object-position: 68% 50%; }
+  .periscope-harbor-shade { background: linear-gradient(180deg, #031426aa, #03142648 44%, transparent 68%), linear-gradient(0deg, #04132260, transparent 40%); }
+  .periscope-interior-shade { background: linear-gradient(180deg, #031426cc, #06172470 43%, transparent 76%); }
+  .periscope-service { left: 34%; top: 48%; width: 57%; height: 37%; }
+  .periscope-service-number { font-size: clamp(210px, 58vw, 380px); }
+  .periscope-service-label { font-size: 10px; bottom: 10%; }
+}
+
+@media (max-width: 767px) and (max-height: 600px) {
+  .periscope-world .periscope-caption { font-size: clamp(25px, 5.1vw, 36px); width: 43%; }
+  .periscope-service { left: 63%; top: 31%; width: 28%; height: 56%; }
+  .periscope-service-number { font-size: 33vh; }
+}

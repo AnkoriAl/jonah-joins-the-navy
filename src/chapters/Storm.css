@@ -1,0 +1,136 @@
+.storm-world {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: #0a1d2b;
+}
+
+.storm-world .storm-final-sea,
+.storm-world .storm-deck-layer,
+.storm-world .storm-waterline {
+  position: absolute;
+  inset: 0;
+}
+
+.storm-world .storm-plate {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.storm-world .storm-final-sea { z-index: 0; opacity: 0; }
+.storm-world .storm-deck-layer { z-index: 1; }
+.storm-world .storm-sleeper {
+  position: absolute;
+  left: 15%;
+  top: 68%;
+  width: 39%;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 12px 8px #07141c66);
+}
+
+/* Preserve the original pose board; expose each isolated figure through a crop. */
+.storm-world .storm-sleep-pose {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 990 / 395;
+  overflow: hidden;
+}
+
+.storm-world .storm-sleep-board {
+  position: absolute;
+  left: 0;
+  top: -86.076%;
+  width: 155.152%;
+  max-width: none;
+  height: auto;
+}
+
+.storm-world .storm-afloat {
+  position: absolute;
+  left: 48%;
+  top: 48%;
+  width: 19%;
+  z-index: 2;
+  opacity: 0;
+  will-change: transform, opacity;
+  mask-image: linear-gradient(to bottom, #000 0%, #000 70%, #000b 87%, transparent 100%);
+}
+
+.storm-world .storm-afloat-pose {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 546 / 595;
+  overflow: hidden;
+}
+
+.storm-world .storm-afloat-board {
+  position: absolute;
+  left: -181.319%;
+  top: -39.496%;
+  width: 281.319%;
+  max-width: none;
+  height: auto;
+}
+
+.storm-world .storm-waterline {
+  z-index: 3;
+  opacity: 0;
+  mask-image: linear-gradient(to bottom, transparent 0%, transparent 70%, #000 74%, #000 100%);
+}
+
+.storm-world .storm-crest {
+  position: absolute;
+  left: -20%;
+  bottom: -16%;
+  display: block;
+  width: 140%;
+  height: auto;
+  max-width: none;
+  z-index: 4;
+  opacity: 0;
+  transform-origin: 70% 80%;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.storm-world .storm-caption-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background: linear-gradient(110deg, #071824aa 0%, #0718244f 42%, transparent 70%);
+}
+
+.storm-world .storm-caption {
+  z-index: 6;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .storm-world .storm-deck-plate { object-position: 23% 50%; }
+  .storm-world .storm-final-sea .storm-plate,
+  .storm-world .storm-waterline .storm-plate { object-position: 6% 50%; }
+  .storm-world .storm-sleeper { left: 7%; top: 70%; width: 78%; }
+  .storm-world .storm-afloat { left: 32%; top: 49%; width: 44%; }
+  .storm-world .storm-crest { left: -43%; bottom: -8%; width: 238%; }
+  .storm-world .storm-waterline {
+    mask-image: linear-gradient(to bottom, transparent 0%, transparent 64%, #000 69%, #000 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .storm-world .storm-deck-layer,
+  .storm-world .storm-crest { opacity: 0 !important; }
+  .storm-world .storm-final-sea,
+  .storm-world .storm-afloat,
+  .storm-world .storm-waterline,
+  .storm-world .storm-caption { opacity: 1 !important; }
+  .storm-world .storm-afloat { transform: none !important; }
+}

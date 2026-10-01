@@ -1,0 +1,34 @@
+JONAH JOINS THE NAVY - CINEMATIC STORY
+Created for Almog Ankori's Book of Jonah classroom presentation, 2026.
+
+Song: "הצוללן העברי הראשון"
+Words: Dan Almagor. Music: Albert Piamenta. Performer: Arik Lavie.
+Published edition credits a Ralph Inbar television performance in 1971:
+https://benyehuda.org/read/12456
+Recording source (linked, not redistributed):
+https://www.youtube.com/watch?v=E4hRF0R1T-s
+
+Historical sources:
+https://www.amutayam.org.il/?ArticleID=1116&CategoryID=603
+https://www.technion.ac.il/en/the-history-of-the-technion/
+Hebrew biblical text:
+https://mechon-mamre.org/p/pt/pt1701.htm
+Final Jonah 4:11 excerpt uses a working English translation.
+
+Twenty-six original image assets created with built-in image generation, 2026.
+The revised fish chapter uses matched full-room action views, an underwater
+launch view, and a portrait hammock composition. Seven composed stills derive
+from the selected art. Earlier images are retained in the vault archive.
+No separately billed image/video API or paid stock assets were used.
+Original PNGs and prompt records are retained in the vault's Artwork/Cinematic.
+Animation and visual additions creatively adapt the song.
+INS Tarshish is a fictional destroyer. Nineveh's harbor is imagined from the song.
+The research setting is generic; the kikayon's botanical identity is uncertain.
+The final question belongs to the biblical book, not the song's ending.
+
+Instrument Serif, Noto Sans, and Noto Sans Hebrew: SIL Open Font License 1.1.
+Font license texts are retained in licenses/ and the editable source archive.
+React and React DOM: MIT license, retained in licenses/.
+GSAP 3.15.0: shared reversible animation timeline.
+https://gsap.com/standard-license
+https://gsap.com/pricing/

@@ -1,0 +1,199 @@
+.transfer-world {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  background: #eee7d7;
+}
+
+.transfer-world .transfer-composition {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.transfer-world .transfer-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 52%;
+}
+
+.transfer-world .transfer-paper-wash {
+  position: absolute;
+  inset: 0;
+  background: #f7f0df;
+  pointer-events: none;
+}
+
+.transfer-world .transfer-survivor {
+  position: absolute;
+  height: min(81svh, 920px);
+  aspect-ratio: 3 / 4;
+  left: 70%;
+  bottom: 2.5%;
+  margin-left: calc(min(81svh, 920px) * -.375);
+  overflow: hidden;
+  filter: saturate(.72) brightness(.82) contrast(1.05) drop-shadow(9px 13px 11px #1025354a);
+}
+
+.transfer-world .transfer-jonah-half {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transform: translateX(12%);
+}
+
+.transfer-world .transfer-jonah-board {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  max-width: none;
+  object-fit: fill;
+}
+
+.transfer-world .transfer-boat-group {
+  position: absolute;
+  left: 10%;
+  bottom: 9%;
+  width: 82%;
+  aspect-ratio: 2056 / 765;
+  opacity: 0;
+  filter: drop-shadow(3px 9px 7px #02182645);
+  will-change: transform;
+}
+
+.transfer-world .transfer-boat-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.transfer-world .transfer-aboard {
+  position: absolute;
+  height: 43%;
+  aspect-ratio: 3 / 4;
+  left: 62%;
+  bottom: 41%;
+  overflow: hidden;
+  z-index: 1;
+  filter: saturate(.76) brightness(.85);
+}
+
+.transfer-world .transfer-waterline {
+  position: absolute;
+  left: 5%;
+  right: 4%;
+  bottom: 0;
+  height: 9%;
+  border-radius: 50%;
+  background: #071e3270;
+  filter: blur(11px);
+  z-index: 0;
+}
+
+.transfer-world .transfer-slip {
+  position: absolute;
+  left: 12%;
+  top: 44%;
+  width: 43%;
+  height: 23%;
+  overflow: hidden;
+  opacity: 0;
+  background: #f0e8d7;
+  box-shadow: 2px 8px 14px #13283127;
+  clip-path: polygon(0 .7%, 11% 0, 29% .8%, 51% .2%, 70% .6%, 89% 0, 100% .5%, 99.8% 100%, 78% 99.3%, 56% 100%, 34% 99.6%, 12% 100%, .2% 99.6%);
+  z-index: 5;
+}
+
+.transfer-world .transfer-slip-fibre {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-size: 100% 420%;
+  background-position: 0 0;
+  opacity: .8;
+}
+
+.transfer-world .transfer-slip-rule {
+  position: absolute;
+  top: 48%;
+  left: 9%;
+  right: 12%;
+  height: 1px;
+  background: #0e31453b;
+}
+
+.transfer-world .transfer-slip-fastener {
+  position: absolute;
+  top: 11%;
+  right: 6%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #9a8051;
+  box-shadow: inset 1px 1px 1px #f1dfac, 1px 1px 3px #48381757;
+}
+
+.transfer-world .transfer-caption {
+  color: #0b293e;
+  z-index: 7;
+  opacity: 0;
+  text-shadow: none;
+}
+
+.transfer-world .transfer-caption p {
+  margin: 0;
+  max-width: 15ch;
+}
+
+@media (max-width: 767px) {
+  .transfer-world .transfer-backdrop {
+    object-position: 55% 50%;
+  }
+
+  .transfer-world .transfer-survivor {
+    height: 62svh;
+    left: 68%;
+    bottom: 5%;
+    margin-left: calc(62svh * -.375);
+  }
+
+  .transfer-world .transfer-boat-group {
+    left: -15%;
+    bottom: 13%;
+    width: 132%;
+  }
+
+  .transfer-world .transfer-slip {
+    left: 13%;
+    top: 46%;
+    width: 74%;
+    height: 19%;
+  }
+
+  .transfer-world .transfer-caption {
+    left: 8%;
+    top: 12%;
+    width: 84%;
+  }
+
+  .transfer-world .transfer-caption p {
+    max-width: 14ch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transfer-world .transfer-boat-group {
+    will-change: auto;
+  }
+}
