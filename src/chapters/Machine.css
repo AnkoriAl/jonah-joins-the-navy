@@ -1,5 +1,7 @@
 .machine-world { background: #061522; isolation: isolate; }
-.machine-plane { position: absolute; left: 50%; top: 50%; width: max(100%, 177.778svh); height: max(100%, 56.25vw); transform: translate(-50%, -50%); }
+/* Static centering stays outside the plane whose x position GSAP controls. */
+.machine-frame { position: absolute; left: 50%; top: 50%; width: max(100%, 177.778svh); height: max(100%, 56.25vw); transform: translate(-50%, -50%); }
+.machine-plane { position: absolute; inset: 0; }
 .machine-camera { position: absolute; inset: 0; }
 .machine-portrait-frame { display: none; position: absolute; inset: 0; z-index: 1; }
 .machine-world .machine-plate { inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; visibility: hidden; }

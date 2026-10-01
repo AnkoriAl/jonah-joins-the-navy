@@ -8,7 +8,7 @@ type Plate = typeof plates[number];
 
 function Machine() {
   return <div className="chapter-world machine-world" aria-hidden="true">
-    <div className="machine-plane"><div className="machine-camera">
+    <div className="machine-frame"><div className="machine-plane"><div className="machine-camera">
       {plates.map(name => <Art key={name} file={`machine-v2-${name}.png`} className={`machine-plate machine-plate-${name}`} />)}
       <div className="machine-oil-drop" />
       <div className="machine-surface-light" />
@@ -17,7 +17,7 @@ function Machine() {
         <div className="machine-bubbles">{Array.from({length: 9}, (_, i) => <i key={i} style={{'--bubble-x': `${i * 10}%`, '--bubble-y': `${(i % 3) * 30}%`, '--bubble-size': `${3 + i % 4 * 2}px`} as CSSProperties} />)}</div>
       </div>
       <div className="machine-travel-light" />
-    </div></div>
+    </div></div></div>
     <div className="machine-portrait-frame"><Art file="machine-v2-hammock-portrait.png" className="machine-plate machine-plate-hammock" /></div>
     <div className="machine-caption-shade" />
     <Caption className="machine-caption machine-caption-cramped">Inside the fish, it is cramped—like any submarine.</Caption>
