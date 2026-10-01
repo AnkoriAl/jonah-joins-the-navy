@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 import { asset, type ChapterDefinition } from '../cinematic';
-import { Art, Caption } from '../World';
+import { Art, Caption, SongCaption } from '../World';
 import './Enlist.css';
 
 function EnlistWorld() {
@@ -24,13 +24,11 @@ function EnlistWorld() {
         </div>
       </div>
       <Caption className="enlist-title">
-        <span className="caption-kicker">The song, retold in English</span>
+        <span className="caption-kicker">The song, in Hebrew and English</span>
         <h1>Jonah Joins the Navy</h1>
         <p lang="he" dir="rtl">הצוללן העברי הראשון</p>
       </Caption>
-      <Caption className="enlist-turn">
-        <p>He boards a destroyer named INS Tarshish.</p>
-      </Caption>
+      <SongCaption className="enlist-turn" quote="board" />
       <div className="enlist-hull-label">
         <span>INS TARSHISH</span>
         <span className="enlist-fiction">· fictional destroyer</span>

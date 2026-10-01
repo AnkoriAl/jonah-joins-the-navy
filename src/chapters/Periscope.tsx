@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 import { asset, type ChapterDefinition } from '../cinematic';
-import { Art, Caption } from '../World';
+import { Art, SongCaption } from '../World';
 import './Periscope.css';
 
 function PeriscopeWorld() {
@@ -29,9 +29,9 @@ function PeriscopeWorld() {
       <div className="periscope-page periscope-page-one"><Art file="lab-paper.png" /></div>
       <div className="periscope-page periscope-page-two"><Art file="lab-paper.png" /></div>
     </div>
-    <Caption className="periscope-caption periscope-caption-throat">He peers through the fish’s throat, now a periscope.</Caption>
-    <Caption className="periscope-caption periscope-caption-harbor">He steers confidently toward the port of Nineveh.<small>The song imagines Nineveh as a port.</small></Caption>
-    <Caption className="periscope-caption periscope-caption-service">After years in the fish, he wins a commendation.<small>“Number-one submariner.”</small></Caption>
+    <SongCaption className="periscope-caption periscope-caption-throat" quote="throat" />
+    <SongCaption className="periscope-caption periscope-caption-harbor" quote="harbor" note="The song imagines Nineveh as a port." />
+    <SongCaption className="periscope-caption periscope-caption-service" quote="service" />
   </div>;
 }
 

@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 import { asset, type ChapterDefinition } from '../cinematic';
-import { Art, Caption } from '../World';
+import { Art, SongCaption } from '../World';
 import './England.css';
 
 function EnglandWorld() {
@@ -29,12 +29,8 @@ function EnglandWorld() {
         <div className="england-tunnel" />
         <div className="england-interior-dark" />
       </div>
-      <Caption className="england-caption england-caption-buy">
-        <p>In England for training, the navy buys a giant fish.</p>
-      </Caption>
-      <Caption className="england-caption england-caption-enter">
-        <p>Jonah climbs inside his new submarine.</p>
-      </Caption>
+      <SongCaption className="england-caption england-caption-buy" quote="buy" />
+      <SongCaption className="england-caption england-caption-enter" quote="enter" />
     </div>
   );
 }

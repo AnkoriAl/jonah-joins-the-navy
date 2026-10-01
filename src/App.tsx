@@ -9,7 +9,8 @@ import { machine } from './chapters/Machine';
 import { periscope } from './chapters/Periscope';
 import { lab } from './chapters/Lab';
 import { asset, type ChapterId } from './cinematic';
-import { LoadArtContext } from './World';
+import { LoadArtContext, LyricPair } from './World';
+import { chapterSongQuotes, songQuoteAt } from './songQuotes';
 
 gsap.registerPlugin(ScrollTrigger);
 const chapters = [enlist, storm, transfer, england, machine, periscope, lab];
@@ -17,12 +18,6 @@ const starts = [0,15,35,55,80,125,150];
 const duration = 180;
 // Chapter links land after the .8-second dissolve, when the incoming art is visible.
 function chapterTime(index:number) { return starts[index]+(index>0?1:0); }
-const stillCopy = [
-  'Jonah joins the navy and boards INS Tarshish.', 'A great wave washes the sleeping Jonah into the sea.',
-  'He transfers to a torpedo boat, then volunteers for submarine service.', 'In England for training, the navy buys a giant fish.',
-  'Jonah turns the fish’s organs into submarine machinery.', 'He steers toward Nineveh and earns a commendation.',
-  'After the navy, he researches kikayon plants at the Technion.'
-];
 function route() {
   const hash=decodeURIComponent(location.hash.slice(1));
   if(hash==='listen'||hash==='references') return {footer:true,time:0};
@@ -71,6 +66,8 @@ export default function App() {
   const [failed,setFailed]=useState<Set<ChapterId>>(new Set());
   const presenter=new URLSearchParams(location.search).has('presenter');
   const current=indexAt(time);
+  const currentQuote=songQuoteAt(chapters[current].id,time-starts[current]);
+  const biblicalQuestion=current===6&&time-starts[current]>=21.4;
 
   function reveal() {
     setControls(true); clearTimeout(hideTimer.current);
@@ -188,7 +185,7 @@ export default function App() {
     <p className="eyebrow">The song and its sources</p>
     <h2>A prophet, an unexpected career</h2>
     <p>An original visual adaptation of Dan Almagor’s <span lang="he" dir="rtl">הצוללן העברי הראשון</span>. Music by Albert Piamenta; performed by Arik Lavie. The published edition identifies a 1971 television performance.</p>
-    <p>The English captions give a short retelling of the song, paraphrasing its actions rather than translating every line. Brief notes explain the Technion, kikayon, and imagined port. The closing question comes from the biblical book of Jonah, after the song’s ending.</p>
+    <p>Each scene pairs a brief Hebrew excerpt from the song with a working English translation. Notes explain the Technion, kikayon, and imagined port. The closing question comes from the biblical book of Jonah, after the song’s ending.</p>
     <a id="listen" className="recording-link" href="https://www.youtube.com/watch?v=E4hRF0R1T-s" target="_blank" rel="noreferrer">Listen to the recording <span aria-hidden="true">↗</span></a>
     <ul>
       <li><a href="https://benyehuda.org/read/12456" target="_blank" rel="noreferrer">Song, lyrics, and credits · Project Ben-Yehuda</a></li>
@@ -201,7 +198,19 @@ export default function App() {
     {!reduced&&<a className="still-link" href={`${location.pathname}?motion=still#enlist`}>View the still story</a>}
   </footer>;
 
-  if(reduced)return <><main className="still-story">{chapters.map((chapter,i)=><section id={chapter.id} className="still-chapter" key={chapter.id}><img src={asset(`poster-${chapter.id}.webp`)} alt={chapter.description}/><div><span className="eyebrow">{String(i+1).padStart(2,'0')} / {chapter.title}</span><h1>{i===0?'Jonah Joins the Navy':stillCopy[i]}</h1>{i===0&&<><p lang="he" dir="rtl">הצוללן העברי הראשון</p><p>A short English retelling of the song.</p><p>{stillCopy[0]}</p></>}{i===6&&<><p>The plant from Jonah 4.</p><span className="eyebrow">Back to the biblical book</span><h2>And should I not care about Nineveh?</h2><p lang="he" dir="rtl">וַאֲנִי לֹא אָחוּס עַל־נִינְוֵה</p><small>God’s question to Jonah · Jonah 4:11, excerpt</small></>}</div></section>)}</main>{sources}</>;
+  if(reduced)return <><main className="still-story">{chapters.map((chapter,i)=><section id={chapter.id} className="still-chapter" key={chapter.id}>
+    <img src={asset(`poster-${chapter.id}.webp`)} alt={chapter.description}/>
+    <div><span className="eyebrow">{String(i+1).padStart(2,'0')} / 07</span><h1>{i===0?'Jonah Joins the Navy':chapter.title}</h1>
+      {i===0&&<><p lang="he" dir="rtl">הצוללן העברי הראשון</p><p>Hebrew song excerpts with English translations.</p></>}
+      <div className="still-quotes">{chapterSongQuotes[chapter.id].map(quote=><LyricPair key={quote} quote={quote}/>)}</div>
+      {i===0&&<p>The song’s destroyer is named INS Tarshish.</p>}
+      {i===5&&<p>The song imagines Nineveh as a port.</p>}
+      {i===6&&<><p>The Technion is Israel’s institute of technology. Kikayon is the plant from Jonah 4.</p>
+        <div className="still-bible"><span className="eyebrow">Back to the biblical book</span>
+          <div className="lyric-pair"><p className="lyric-english" lang="en" dir="ltr">And should I not care about Nineveh?</p><blockquote className="lyric-hebrew" lang="he" dir="rtl" cite="https://mechon-mamre.org/p/pt/pt1704.htm">וַאֲנִי לֹא אָחוּס עַל־נִינְוֵה</blockquote></div>
+          <small>God’s question to Jonah · Jonah 4:11, excerpt · working English translation</small>
+        </div></>}
+    </div></section>)}</main>{sources}</>;
 
   return <>
     <main ref={story} className="scroll-story" onPointerMove={reveal}>
@@ -209,7 +218,9 @@ export default function App() {
         {chapters.map((chapter,i)=><section key={chapter.id} className={`chapter-layer chapter-${chapter.id}`} data-chapter={chapter.id} aria-hidden={i!==current}>
           {failed.has(chapter.id)?<img className="poster-fallback" src={asset(`poster-${chapter.id}.webp`)} alt={chapter.description}/>:<div className="chapter-mount" aria-hidden="true" onErrorCapture={()=>setFailed(old=>new Set(old).add(chapter.id))}><LoadArtContext.Provider value={loaded.has(i)}><chapter.Component/></LoadArtContext.Provider></div>}
         </section>)}
-        <p className="sr-only" aria-live="polite">{chapters[current].title}: {chapters[current].description}</p>
+        <div className="sr-only" aria-live="polite" aria-atomic="true">
+          {currentQuote?<><p lang="en" dir="ltr">{currentQuote.en}</p><p lang="he" dir="rtl">{currentQuote.he}</p></>:biblicalQuestion?<><p>God’s question to Jonah · Jonah 4:11, excerpt</p><p lang="en">And should I not care about Nineveh?</p><p lang="he" dir="rtl">וַאֲנִי לֹא אָחוּס עַל־נִינְוֵה</p></>:<p>{chapters[current].title}: {chapters[current].description}</p>}
+        </div>
         <nav className={`transport ${controls||menu?'is-visible':''}`} aria-label="Story controls" onFocus={reveal} onPointerEnter={reveal}>
           <button className="play-control" onClick={play} disabled={!ready||preparing} aria-label={playing?'Pause story':'Play story'}><span className="play-symbol" aria-hidden="true">{playing?'Ⅱ':'▷'}</span>{preparing?'Preparing…':playing?'Pause':'Play story'}</button>
           {presenter&&<button onClick={()=>{pause();seek(0);reveal()}}>Restart</button>}

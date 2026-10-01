@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 import { asset, type ChapterDefinition } from '../cinematic';
-import { Art, Caption } from '../World';
+import { Art, SongCaption } from '../World';
 import './Transfer.css';
 
 function NavyJonah({ className }: { className: string }) {
@@ -31,18 +31,10 @@ function TransferWorld() {
           <div className="transfer-slip-fastener" />
         </div>
       </div>
-      <Caption className="transfer-caption transfer-survived">
-        <p>Jonah barely survives—he cannot swim.</p>
-      </Caption>
-      <Caption className="transfer-caption transfer-request">
-        <p>He transfers to a torpedo boat.</p>
-      </Caption>
-      <Caption className="transfer-caption transfer-rolling">
-        <p>The boat keeps rolling on the waves.</p>
-      </Caption>
-      <Caption className="transfer-caption transfer-volunteer">
-        <p>He volunteers to serve in a submarine.</p>
-      </Caption>
+      <SongCaption className="transfer-caption transfer-survived" quote="survival" />
+      <SongCaption className="transfer-caption transfer-request" quote="transfer" />
+      <SongCaption className="transfer-caption transfer-rolling" quote="rolling" />
+      <SongCaption className="transfer-caption transfer-volunteer" quote="volunteer" />
     </div>
   );
 }

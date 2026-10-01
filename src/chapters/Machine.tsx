@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import { Art, Caption } from '../World';
+import { Art, SongCaption } from '../World';
 import { asset, type ChapterDefinition } from '../cinematic';
 import './Machine.css';
 
@@ -20,12 +20,12 @@ function Machine() {
     </div></div></div>
     <div className="machine-portrait-frame"><Art file="machine-v2-hammock-portrait.png" className="machine-plate machine-plate-hammock" /></div>
     <div className="machine-caption-shade" />
-    <Caption className="machine-caption machine-caption-cramped">Inside the fish, it is cramped—like any submarine.</Caption>
-    <Caption className="machine-caption machine-caption-hammock">Jonah hangs a hammock between the spleen and kidneys.</Caption>
-    <Caption className="machine-caption machine-caption-liver">He oils the liver.</Caption>
-    <Caption className="machine-caption machine-caption-gallbladder">He cleans the gallbladder.</Caption>
-    <Caption className="machine-caption machine-caption-launch">He pulls the large intestine—and fires a torpedo.</Caption>
-    <Caption className="machine-caption machine-caption-living">The living submarine sets off.</Caption>
+    <SongCaption className="machine-caption machine-caption-cramped" quote="cramped" />
+    <SongCaption className="machine-caption machine-caption-hammock" quote="hammock" />
+    <SongCaption className="machine-caption machine-caption-liver" quote="liver" />
+    <SongCaption className="machine-caption machine-caption-gallbladder" quote="gallbladder" />
+    <SongCaption className="machine-caption machine-caption-launch" quote="launch" />
+    <SongCaption className="machine-caption machine-caption-living" quote="living" />
   </div>;
 }
 

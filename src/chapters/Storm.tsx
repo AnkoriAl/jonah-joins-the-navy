@@ -1,6 +1,6 @@
 import type { gsap } from 'gsap';
 import { asset, type ChapterDefinition } from '../cinematic';
-import { Art, Caption } from '../World';
+import { Art, SongCaption } from '../World';
 import './Storm.css';
 
 function StormWorld() {
@@ -27,8 +27,8 @@ function StormWorld() {
       </div>
       <Art file="storm-wave.png" className="storm-crest" />
       <div className="storm-caption-shade" />
-      <Caption className="storm-caption storm-caption-sleep">While Jonah sleeps, the sea begins to rage.</Caption>
-      <Caption className="storm-caption storm-caption-wave">A great wave washes him into the sea.</Caption>
+      <SongCaption className="storm-caption storm-caption-sleep" quote="sleep" />
+      <SongCaption className="storm-caption storm-caption-wave" quote="wave" />
     </div>
   );
 }

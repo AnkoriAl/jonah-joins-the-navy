@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 import { asset, type ChapterDefinition } from '../cinematic';
-import { Art, Caption } from '../World';
+import { Art, Caption, SongCaption } from '../World';
 import './Lab.css';
 
 function LabWorld() {
@@ -17,12 +17,11 @@ function LabWorld() {
         <Art file="optical-rim.png" className="lab-rim" />
       </div>
     </div>
-    <Caption className="lab-caption lab-caption-technion">After the navy, he goes to the Technion.<small>Israel’s institute of technology.</small></Caption>
-    <Caption className="lab-caption lab-caption-research">There he researches kikayon plants.<small>The plant from Jonah 4.</small></Caption>
-    <Caption className="lab-caption lab-caption-question">
+    <SongCaption className="lab-caption lab-caption-technion" quote="technion" note="Israel’s institute of technology." />
+    <SongCaption className="lab-caption lab-caption-research" quote="research" note="The plant from Jonah 4." />
+    <Caption className="lab-caption lab-caption-question bible-caption">
       <span className="caption-kicker">Back to the biblical book</span>
-      <p>And should I not care about Nineveh?</p>
-      <p lang="he" dir="rtl">וַאֲנִי לֹא אָחוּס עַל־נִינְוֵה</p>
+      <div className="lyric-pair"><p className="lyric-english" lang="en" dir="ltr">And should I not care about Nineveh?</p><blockquote className="lyric-hebrew" lang="he" dir="rtl" cite="https://mechon-mamre.org/p/pt/pt1704.htm">וַאֲנִי לֹא אָחוּס עַל־נִינְוֵה</blockquote></div>
       <small>God’s question to Jonah<br />Jonah 4:11 · excerpt</small>
     </Caption>
   </div>;
