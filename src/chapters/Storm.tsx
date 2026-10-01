@@ -27,7 +27,8 @@ function StormWorld() {
       </div>
       <Art file="storm-wave.png" className="storm-crest" />
       <div className="storm-caption-shade" />
-      <Caption className="storm-caption">Jonah sleeps. The sea rises.</Caption>
+      <Caption className="storm-caption storm-caption-sleep">While Jonah sleeps, the sea begins to rage.</Caption>
+      <Caption className="storm-caption storm-caption-wave">A great wave washes him into the sea.</Caption>
     </div>
   );
 }
@@ -40,16 +41,19 @@ function animate(root: HTMLElement, timeline: gsap.core.Timeline) {
   const crest = local('.storm-crest');
   const afloat = local('.storm-afloat');
   const waterline = local('.storm-waterline');
-  const caption = local('.storm-caption');
-  if (!deck || !sleeper || !sea || !crest || !afloat || !waterline || !caption) return;
+  const caption = local('.storm-caption-sleep');
+  const waveCaption = local('.storm-caption-wave');
+  if (!deck || !sleeper || !sea || !crest || !afloat || !waterline || !caption || !waveCaption) return;
 
   // Absolute times and local targets let the shared scroll timeline seek in either direction.
   timeline.set(deck, { opacity: 1 }, 0);
   timeline.set(sleeper, { opacity: 1, xPercent: 0, yPercent: 0 }, 0);
-  timeline.set([sea, afloat, waterline, caption], { opacity: 0 }, 0);
+  timeline.set([sea, afloat, waterline, caption, waveCaption], { opacity: 0 }, 0);
   timeline.set(afloat, { yPercent: 5 }, 0);
   timeline.set(crest, { opacity: 0, xPercent: 28, yPercent: 92 }, 0);
   timeline.to(caption, { opacity: 1, duration: 1.2, ease: 'power1.out' }, 0.8);
+  timeline.to(caption, { opacity: 0, duration: .4, ease: 'none' }, 12.5);
+  timeline.to(waveCaption, { opacity: 1, duration: .6, ease: 'none' }, 13.2);
 
   // Seven seconds of stillness; then one wave enters from the sea at the right.
   timeline.to(crest, { opacity: 1, duration: 0.8, ease: 'none' }, 7);

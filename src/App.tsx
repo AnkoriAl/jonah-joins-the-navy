@@ -18,10 +18,10 @@ const duration = 180;
 // Chapter links land after the .8-second dissolve, when the incoming art is visible.
 function chapterTime(index:number) { return starts[index]+(index>0?1:0); }
 const stillCopy = [
-  'Tarshish becomes a ship.', 'Jonah sleeps. The sea rises.',
-  'A transfer. A torpedo boat. Submarine service.', 'In England, they bought a giant fish.',
-  'Between spleen and kidneys, a living submarine.', 'Nineveh, imagined as a port.',
-  'And should I not care about Nineveh?'
+  'Jonah joins the navy and boards INS Tarshish.', 'A great wave washes the sleeping Jonah into the sea.',
+  'He transfers to a torpedo boat, then volunteers for submarine service.', 'In England for training, the navy buys a giant fish.',
+  'Jonah turns the fish’s organs into submarine machinery.', 'He steers toward Nineveh and earns a commendation.',
+  'After the navy, he researches kikayon plants at the Technion.'
 ];
 function route() {
   const hash=decodeURIComponent(location.hash.slice(1));
@@ -188,6 +188,7 @@ export default function App() {
     <p className="eyebrow">The song and its sources</p>
     <h2>A prophet, an unexpected career</h2>
     <p>An original visual adaptation of Dan Almagor’s <span lang="he" dir="rtl">הצוללן העברי הראשון</span>. Music by Albert Piamenta; performed by Arik Lavie. The published edition identifies a 1971 television performance.</p>
+    <p>The English captions give a short retelling of the song, paraphrasing its actions rather than translating every line. Brief notes explain the Technion, kikayon, and imagined port. The closing question comes from the biblical book of Jonah, after the song’s ending.</p>
     <a id="listen" className="recording-link" href="https://www.youtube.com/watch?v=E4hRF0R1T-s" target="_blank" rel="noreferrer">Listen to the recording <span aria-hidden="true">↗</span></a>
     <ul>
       <li><a href="https://benyehuda.org/read/12456" target="_blank" rel="noreferrer">Song, lyrics, and credits · Project Ben-Yehuda</a></li>
@@ -200,7 +201,7 @@ export default function App() {
     {!reduced&&<a className="still-link" href={`${location.pathname}?motion=still#enlist`}>View the still story</a>}
   </footer>;
 
-  if(reduced)return <><main className="still-story">{chapters.map((chapter,i)=><section id={chapter.id} className="still-chapter" key={chapter.id}><img src={asset(`poster-${chapter.id}.webp`)} alt={chapter.description}/><div><span className="eyebrow">{String(i+1).padStart(2,'0')} / {chapter.title}</span><h1>{i===0?'Jonah Joins the Navy':stillCopy[i]}</h1>{i===0&&<p lang="he" dir="rtl">הצוללן העברי הראשון</p>}{i===6&&<><p lang="he" dir="rtl">וַאֲנִי לֹא אָחוּס עַל־נִינְוֵה</p><small>Jonah 4:11 · excerpt</small></>}</div></section>)}</main>{sources}</>;
+  if(reduced)return <><main className="still-story">{chapters.map((chapter,i)=><section id={chapter.id} className="still-chapter" key={chapter.id}><img src={asset(`poster-${chapter.id}.webp`)} alt={chapter.description}/><div><span className="eyebrow">{String(i+1).padStart(2,'0')} / {chapter.title}</span><h1>{i===0?'Jonah Joins the Navy':stillCopy[i]}</h1>{i===0&&<><p lang="he" dir="rtl">הצוללן העברי הראשון</p><p>A short English retelling of the song.</p><p>{stillCopy[0]}</p></>}{i===6&&<><p>The plant from Jonah 4.</p><span className="eyebrow">Back to the biblical book</span><h2>And should I not care about Nineveh?</h2><p lang="he" dir="rtl">וַאֲנִי לֹא אָחוּס עַל־נִינְוֵה</p><small>God’s question to Jonah · Jonah 4:11, excerpt</small></>}</div></section>)}</main>{sources}</>;
 
   return <>
     <main ref={story} className="scroll-story" onPointerMove={reveal}>

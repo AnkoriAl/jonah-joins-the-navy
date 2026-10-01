@@ -32,16 +32,16 @@ function TransferWorld() {
         </div>
       </div>
       <Caption className="transfer-caption transfer-survived">
-        <p>Barely survived.<br />He could not swim.</p>
+        <p>Jonah barely survives—he cannot swim.</p>
       </Caption>
       <Caption className="transfer-caption transfer-request">
-        <p>Transfer.</p>
+        <p>He transfers to a torpedo boat.</p>
       </Caption>
       <Caption className="transfer-caption transfer-rolling">
-        <p>Still rolling.</p>
+        <p>The boat keeps rolling on the waves.</p>
       </Caption>
       <Caption className="transfer-caption transfer-volunteer">
-        <p>I volunteer.</p>
+        <p>He volunteers to serve in a submarine.</p>
       </Caption>
     </div>
   );

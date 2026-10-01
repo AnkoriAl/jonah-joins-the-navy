@@ -29,8 +29,11 @@ function EnglandWorld() {
         <div className="england-tunnel" />
         <div className="england-interior-dark" />
       </div>
-      <Caption className="england-caption">
-        <p>In England, they bought a giant fish.</p>
+      <Caption className="england-caption england-caption-buy">
+        <p>In England for training, the navy buys a giant fish.</p>
+      </Caption>
+      <Caption className="england-caption england-caption-enter">
+        <p>Jonah climbs inside his new submarine.</p>
       </Caption>
     </div>
   );
@@ -59,12 +62,15 @@ function animateEngland(root: HTMLElement, timeline: gsap.core.Timeline) {
     .set(q('.england-fish-layer'), { opacity: 0, scale: reduced ? 1 : .975, xPercent: reduced ? 0 : 3, transformOrigin: '6.4% 43.8%' }, 0)
     .set(q('.england-gill'), { scaleX: 1, transformOrigin: '22% 43%' }, 0)
     .set(q('.england-jonah'), { opacity: 1, x: 0, y: 0, scale: 1, transformOrigin: '50% 100%' }, 0)
-    .set(q('.england-caption'), { opacity: 1, y: 0 }, 0)
+    .set(q('.england-caption'), { opacity: 0, y: 0 }, 0)
+    .set(q('.england-caption-buy'), { opacity: 1 }, 0)
     .set(q('.england-tunnel'), { opacity: 0, left: mouthX, top: mouthY, width: tunnelWidth, height: tunnelHeight, xPercent: -50, yPercent: -50, scale: 1, transformOrigin: '50% 50%' }, 0)
     .set(q('.england-interior-dark'), { opacity: 0 }, 0)
     .to(q('.england-fish-layer'), { opacity: 1, duration: reduced ? .6 : 3, ease: 'sine.inOut' }, 5)
     .to(q('.england-fish-layer'), { scale: 1, xPercent: 0, duration: reduced ? .6 : 6, ease: 'power1.out' }, 5)
-    .to(q('.england-caption'), { opacity: 0, duration: .65, ease: 'none' }, 19.35);
+    .to(q('.england-caption-buy'), { opacity: 0, duration: .45, ease: 'none' }, 16.2)
+    .to(q('.england-caption-enter'), { opacity: 1, duration: .65, ease: 'none' }, 16.8)
+    .to(q('.england-caption-enter'), { opacity: 0, duration: .45, ease: 'none' }, 24.4);
 
   if (reduced) {
     timeline

@@ -13,9 +13,9 @@
 .periscope-botanical-glass { position: absolute; inset: 16.8%; border-radius: 50%; overflow: hidden; background: #122721; }
 .periscope-botanical-glass > .art { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
 .periscope-world .periscope-caption { top: 12%; left: 8%; width: 41%; max-width: 680px; opacity: 0; }
-.periscope-world .periscope-caption-throat { max-width: 12ch; }
-.periscope-world .periscope-caption-harbor { max-width: 13ch; }
-.periscope-world .periscope-caption-service { width: 46%; max-width: 15ch; }
+.periscope-world .periscope-caption-throat { max-width: 20ch; }
+.periscope-world .periscope-caption-harbor { max-width: 20ch; }
+.periscope-world .periscope-caption-service { width: 46%; max-width: 20ch; }
 .periscope-service { position: absolute; left: 62%; top: 43%; width: min(33vw, 500px); height: min(49vh, 490px); z-index: 6; opacity: 0; pointer-events: none; }
 .periscope-service-paper { position: absolute; inset: 0; overflow: hidden; color: #102e3e; box-shadow: 0 1.4rem 2rem #03132160; }
 .periscope-service-paper > .art { inset: 0; width: 100%; height: 100%; object-fit: cover; }

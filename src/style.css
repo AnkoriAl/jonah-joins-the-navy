@@ -11,6 +11,8 @@
 
 .export-frame .transport,.export-frame .scroll-cue{display:none!important}
 
+.story-caption .caption-kicker{display:block;font-family:Noto,Arial,sans-serif;font-size:clamp(12px,1.1vw,20px);line-height:1.5;letter-spacing:.07em;margin-bottom:18px}
+
 .export-frame{scrollbar-width:none}.export-frame::-webkit-scrollbar{display:none}
 
 html{scrollbar-width:none}html::-webkit-scrollbar{display:none}.art-frame .story-caption,.art-frame .enlist-hull-label{visibility:hidden!important}

@@ -29,9 +29,9 @@ function PeriscopeWorld() {
       <div className="periscope-page periscope-page-one"><Art file="lab-paper.png" /></div>
       <div className="periscope-page periscope-page-two"><Art file="lab-paper.png" /></div>
     </div>
-    <Caption className="periscope-caption periscope-caption-throat">The throat becomes a periscope.</Caption>
-    <Caption className="periscope-caption periscope-caption-harbor">Nineveh, imagined as a port.</Caption>
-    <Caption className="periscope-caption periscope-caption-service">Years of service.<br />Number-one submariner.</Caption>
+    <Caption className="periscope-caption periscope-caption-throat">He peers through the fish’s throat, now a periscope.</Caption>
+    <Caption className="periscope-caption periscope-caption-harbor">He steers confidently toward the port of Nineveh.<small>The song imagines Nineveh as a port.</small></Caption>
+    <Caption className="periscope-caption periscope-caption-service">After years in the fish, he wins a commendation.<small>“Number-one submariner.”</small></Caption>
   </div>;
 }
 

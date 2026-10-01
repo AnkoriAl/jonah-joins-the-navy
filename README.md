@@ -4,7 +4,7 @@ A three-minute cinematic scrolling retelling of **הצוללן העברי הרא
 
 **[Open the story](https://ankorial.github.io/jonah-joins-the-navy/)** · **[Presenter view](https://ankorial.github.io/jonah-joins-the-navy/?presenter=1#enlist)**
 
-Scroll through seven chapters, or select **Play story** for the 180-second sequence. The final English/Hebrew question remains visible. The story has no automatic audio; narration is live, and the song recording is linked in Sources.
+Scroll through seven chapters, or select **Play story** for the 180-second sequence. English captions are a short retelling of the song, paraphrasing its actions instead of translating every lyric. Brief notes explain the Technion, kikayon, and imagined port. After the song’s research ending, the final English/Hebrew question is explicitly identified as God’s question in Jonah 4:11 and remains visible. The story has no automatic audio; narration is live, and the song recording is linked in Sources.
 
 ## Controls
 

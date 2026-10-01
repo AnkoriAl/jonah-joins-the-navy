@@ -24,11 +24,12 @@ function EnlistWorld() {
         </div>
       </div>
       <Caption className="enlist-title">
+        <span className="caption-kicker">The song, retold in English</span>
         <h1>Jonah Joins the Navy</h1>
         <p lang="he" dir="rtl">הצוללן העברי הראשון</p>
       </Caption>
       <Caption className="enlist-turn">
-        <p>Tarshish becomes a ship.</p>
+        <p>He boards a destroyer named INS Tarshish.</p>
       </Caption>
       <div className="enlist-hull-label">
         <span>INS TARSHISH</span>

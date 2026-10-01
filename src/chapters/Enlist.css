@@ -115,7 +115,7 @@
 
 .enlist-world .enlist-turn p {
   margin: 0;
-  max-width: 11ch;
+  max-width: 20ch;
 }
 
 .enlist-world .enlist-hull-label {
@@ -199,7 +199,7 @@
   }
 
   .enlist-world .enlist-turn p {
-    max-width: 14ch;
+    max-width: 21ch;
   }
 
   .enlist-world .enlist-hull-label {

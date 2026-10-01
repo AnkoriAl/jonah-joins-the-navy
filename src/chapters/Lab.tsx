@@ -17,12 +17,13 @@ function LabWorld() {
         <Art file="optical-rim.png" className="lab-rim" />
       </div>
     </div>
-    <Caption className="lab-caption lab-caption-technion">After discharge: the Technion.</Caption>
-    <Caption className="lab-caption lab-caption-research">Jonah researches the kikayon.</Caption>
+    <Caption className="lab-caption lab-caption-technion">After the navy, he goes to the Technion.<small>Israel’s institute of technology.</small></Caption>
+    <Caption className="lab-caption lab-caption-research">There he researches kikayon plants.<small>The plant from Jonah 4.</small></Caption>
     <Caption className="lab-caption lab-caption-question">
+      <span className="caption-kicker">Back to the biblical book</span>
       <p>And should I not care about Nineveh?</p>
       <p lang="he" dir="rtl">וַאֲנִי לֹא אָחוּס עַל־נִינְוֵה</p>
-      <small>Jonah 4:11 · excerpt</small>
+      <small>God’s question to Jonah<br />Jonah 4:11 · excerpt</small>
     </Caption>
   </div>;
 }
