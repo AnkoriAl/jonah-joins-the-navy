@@ -15,6 +15,8 @@ gsap.registerPlugin(ScrollTrigger);
 const chapters = [enlist, storm, transfer, england, machine, periscope, lab];
 const starts = [0,15,35,55,80,125,150];
 const duration = 180;
+// Chapter links land after the .8-second dissolve, when the incoming art is visible.
+function chapterTime(index:number) { return starts[index]+(index>0?1:0); }
 const stillCopy = [
   'Tarshish becomes a ship.', 'Jonah sleeps. The sea rises.',
   'A transfer. A torpedo boat. Submarine service.', 'In England, they bought a giant fish.',
@@ -27,7 +29,7 @@ function route() {
   if(hash==='reflection') return {footer:false,time:178};
   const id=hash.replace(/^scene\//,'').replace(/^fish$/,'machine');
   const index=chapters.findIndex(c=>c.id===id);
-  return {footer:false,time:index<0?0:starts[index]};
+  return {footer:false,time:index<0?0:chapterTime(index)};
 }
 function preload(files:string[]) {
   return Promise.all([...new Set(files)].map(src=>new Promise<void>(resolve=>{
@@ -81,7 +83,7 @@ export default function App() {
     const st=trigger.current;
     if(st){window.scrollTo({top:st.start+(st.end-st.start)*(t/duration),behavior:'instant'});st.update();timeRef.current=t;setTime(t);const hash=chapters[indexAt(t)].id;if(location.hash!==`#${hash}`)history.replaceState(null,'',`${location.pathname}${location.search}#${hash}`);}
   }
-  function jump(index:number) { pause();setMenu(false);seek(starts[index]);reveal(); }
+  function jump(index:number) { pause();setMenu(false);seek(chapterTime(index));reveal(); }
   async function play() {
     if(playingRef.current){pause();return;}
     if(!ready||reduced||preparingRef.current)return;
